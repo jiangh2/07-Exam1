@@ -111,7 +111,6 @@ def problem3(point, length, delta, window):
     p = point.x + length
     q = point.y
     for k in range(round(n) + 1):
-        print(k)
         line = rg.Line(rg.Point(x, y), rg.Point(p, q))
         line.thickness = 3
         line.attach_to(window)
