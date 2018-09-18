@@ -2,15 +2,15 @@
 Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Hao Jiang.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_problem1a()
+    #run_test_problem1a()
     run_test_problem1b()
 
 
@@ -89,10 +89,23 @@ def problem1a(rectangle, square, thickness, window):
       :type window:    rg.RoseWindow
     """
     # --------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # DONE: 2. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
-
+    rectangle.attach_to(window)
+    square.attach_to(window)
+    starting_point = square.center
+    x = (rectangle.corner_1.x + rectangle.corner_2.x) / 2
+    if rectangle.corner_2.y > rectangle.corner_1.y:
+        y = rectangle.corner_1.y
+    else:
+        y = rectangle.corner_2.y
+    end_point = rg.Point(x, y)
+    line = rg.Line(starting_point, end_point)
+    line.thickness = thickness
+    line.color = rectangle.outline_color
+    line.attach_to(window)
+    window.render()
 
 def run_test_problem1b():
     """ Tests the  problem1b   function. """
@@ -152,7 +165,16 @@ def problem1b(point, win, width, height, color):
     # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
-
+    x = point.x - (width / 2)
+    y = point.y
+    p = point.x + (width / 2)
+    q = point.y + height
+    left_corner = rg.Point(x, y)
+    right_corner = rg.Point(p, q)
+    ellipse = rg.Ellipse(left_corner, right_corner)
+    ellipse.fill_color = color
+    ellipse.attach_to(win)
+    win.render()
 
 # ------------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
