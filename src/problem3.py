@@ -25,17 +25,17 @@ def run_test_problem3():
     title = 'Test 1 of problem3'
     window = rg.RoseWindow(450, 250, title)
 
-    #problem3(rg.Point(10, 20), 200, 25, window)
+    problem3(rg.Point(10, 20), 200, 25, window)
     window.close_on_mouse_click()
 
     # TWO tests on ONE window.
     title = 'Tests 2, 3 and 4 of problem3'
     window = rg.RoseWindow(450, 250, title)
 
-    #problem3(rg.Point(15, 30), 100, 20, window)
+    problem3(rg.Point(15, 30), 100, 20, window)
     window.continue_on_mouse_click()
 
-    #problem3(rg.Point(250, 10), 90, 45, window)
+    problem3(rg.Point(250, 10), 90, 45, window)
     window.continue_on_mouse_click()
 
     problem3(rg.Point(250, 125), 80, 45, window)
@@ -111,8 +111,7 @@ def problem3(point, length, delta, window):
     p = point.x + length
     q = point.y
     for k in range(round(n) + 1):
-        print(q)
-        print(length + delta)
+        print(k)
         line = rg.Line(rg.Point(x, y), rg.Point(p, q))
         line.thickness = 3
         line.attach_to(window)
